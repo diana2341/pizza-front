@@ -1,25 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
+import {BrowserRouter as Router ,Route} from 'react-router-dom'
+import Checkout from './components/Checkout'
+import CreatePizza from './components/CreatePizza'
+import Entrance from './components/Entrance'
+import PizzaProfile from './components/Pizzaprofile'
+import Pizzas from './components/pizzas'
+
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+    <Route exact path= '/' render={(routerProps)=>(<Entrance {...routerProps}/>)}/>  
+    <Route exact path= '/pizzas' render={(routerProps)=>(<Pizzas {...routerProps}/>)}/>  
+    <Route exact path= '/pizzas/:id' render={(routerProps)=>(<PizzaProfile {...routerProps}/>)}/>  
+    <Route exact path= '/create-Your-Pizza' render={(routerProps)=>(<CreatePizza {...routerProps}/>)}/>  
+    <Route exact path= '/checkout' render={(routerProps)=>(<Checkout {...routerProps}/>)}/>  
+
+    </Router>
   );
 }
 
