@@ -5,11 +5,12 @@ import CreatePizza from './components/CreatePizza'
 import Entrance from './components/Entrance'
 import PizzaProfile from './components/Pizzaprofile'
 import Pizzas from './components/pizzas'
-
+import {Provider} from 'react-redux'
 import './App.css';
-
+import store from './components/store'
 function App() {
   return (
+    <Provider store={store}>
     <Router>
     <Route exact path= '/' render={(routerProps)=>(<Entrance {...routerProps}/>)}/>  
     <Route exact path= '/pizzas' render={(routerProps)=>(<Pizzas {...routerProps}/>)}/>  
@@ -18,6 +19,7 @@ function App() {
     <Route exact path= '/checkout' render={(routerProps)=>(<Checkout {...routerProps}/>)}/>  
 
     </Router>
+    </Provider>
   );
 }
 
